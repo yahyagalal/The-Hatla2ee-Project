@@ -17,8 +17,6 @@ zip_path = "./hatla2ee_model.zip"
 # Path where the model file will be extracted
 model_path = "./hatla2ee_model.joblib"
 
-# Path where the ZIP file of cleaned dataset will be downloaded
-zip_path_cleaned_data = "./hatla2ee_scraped_data_cleaned.zip"
 
 # Path where the cleaned dataset CSV will be extracted
 cleaned_data_path = "./hatla2ee_scraped_data_cleaned.csv"
@@ -51,42 +49,7 @@ st.title("Used Car Price Prediction by Yahia Galal")
 
 
 
-def unzip_cleaned_data(zip_path, extract_to):
-    # Check if the ZIP file exists
-    if not os.path.exists(zip_path):
-        st.error(f"ZIP file {zip_path} not found.")
-        return None
-
-    # Unzip the cleaned dataset if not already unzipped
-    if not os.path.exists(extract_to):
-        st.write("Unzipping cleaned dataset...")
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(extract_to)
-        st.success(f"Cleaned dataset extracted to {extract_to}")
-
-    # Check if there's a CSV file in the extracted directory
-    csv_files = [f for f in os.listdir(extract_to) if f.endswith('.csv')]
-    if csv_files:
-        csv_file = os.path.join(extract_to, csv_files[0])  # Assume the first CSV file found
-        return csv_file
-    else:
-        st.error(f"No CSV file found in {extract_to}.")
-        return None
-
-# Example usage: Unzip and get the path of the extracted CSV file
-extracted_csv_path = unzip_cleaned_data(zip_path_cleaned_data, "./")
-
-# Print the directory of the extracted file
-if extracted_csv_path:
-    st.write(f"Extracted CSV file path: {extracted_csv_path}")
-else:
-    st.error("Failed to extract CSV file.")
-
-
-st.title("Unzipped the dataset")
-
-
-df_cleaned=pd.read_csv(extracted_csv_path)
+df_cleaned=pd.read_csv(cleaned_data_path)
 df_cleaned=df_cleaned.drop('Price',axis=1)
 
 st.write(df_cleaned.head())
