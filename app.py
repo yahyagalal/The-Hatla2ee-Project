@@ -35,7 +35,7 @@ if not os.path.exists(model_path):
         zip_ref.extractall()
 
 # Load the model
-st.write("Loading model...")
+#st.write("Loading model...")
 model = joblib.load(model_path)
 #st.write("Model loaded successfully!")
 
