@@ -5,10 +5,10 @@ import pandas as pd
 
 try:
     import sklearn
-    st.write(f"scikit-learn version: {sklearn.__version__}")
-    st.write("scikit-learn imported successfully!")
+  #  st.write(f"scikit-learn version: {sklearn.__version__}")
+  #  st.write("scikit-learn imported successfully!")
 except ImportError:
-    st.error("scikit-learn not found. Please ensure it is installed.")
+  #  st.error("scikit-learn not found. Please ensure it is installed.")
     
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
@@ -51,15 +51,7 @@ if not os.path.exists(model_path):
 # Load the model
 #st.write("Loading model...")
 model = joblib.load(model_path)
-try:
-    model = joblib.load(model_path)
-    #st.write("Model loaded successfully!")
-    #st.write(f"Model type: {type(model)}")
-    #st.write(f"Model details: {model}")
-except Exception as e:
-    #st.write(f"Error loading model: {e}")
-#st.write("Model loaded successfully!")
-#st.write(model)
+
 
 scaler=joblib.load('./scaler.joblib')
 
