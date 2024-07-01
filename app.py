@@ -26,10 +26,10 @@ st.write(f"scikit-learn version: {sklearn.__version__}")
 url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model_lr.zip"
 
 # Path where the ZIP file will be downloaded
-zip_path = "./hatla2ee_model.zip"
+zip_path = "./hatla2ee_model_lr.zip"
 
 # Path where the model file will be extracted
-model_path = "./hatla2ee_model.joblib"
+model_path = "./hatla2ee_model_lr.joblib"
 
 
 # Path where the cleaned dataset CSV will be extracted
