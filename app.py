@@ -51,12 +51,21 @@ st.title("Used Car Price Prediction by Yahia Galal")
 
 
 
+def unzip_cleaned_data(zip_path, extract_to):
+    # Check if the ZIP file exists
+    if not os.path.exists(zip_path):
+        st.error(f"ZIP file {zip_path} not found.")
+        return
 
-if not os.path.exists(data_path):
+    # Unzip the cleaned dataset if not already unzipped
+    if not os.path.exists(extract_to):
         st.write("Unzipping cleaned dataset...")
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall()
+            zip_ref.extractall(extract_to)
+        st.success(f"Cleaned dataset extracted to {extract_to}")
 
+# Example usage
+unzip_cleaned_data(zip_path_cleaned_data, "./")
 
 st.title("Unzipped the dataset")
 
