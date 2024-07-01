@@ -37,6 +37,13 @@ if not os.path.exists(model_path):
 # Load the model
 #st.write("Loading model...")
 model = joblib.load(model_path)
+try:
+    model = joblib.load(model_path)
+    st.write("Model loaded successfully!")
+    st.write(f"Model type: {type(model)}")
+    st.write(f"Model details: {model}")
+except Exception as e:
+    st.write(f"Error loading model: {e}")
 #st.write("Model loaded successfully!")
 st.write(model)
 
