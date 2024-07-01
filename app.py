@@ -8,7 +8,7 @@ import requests
 import zipfile
 import os
 
-st.write(print(sklearn.__version__))
+st.write(sklearn.__version__)
 
 # URL of the ZIP file in your GitHub repository
 url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model.zip"
