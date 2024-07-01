@@ -13,7 +13,7 @@ import subprocess
 
 
 # Display scikit-learn version using Streamlit
-st.write(f"scikit-learn version: {sklearn.__version__}")
+#st.write(f"scikit-learn version: {sklearn.__version__}")
 
 # URL of the ZIP file in your GitHub repository
 url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model_lr.zip"
