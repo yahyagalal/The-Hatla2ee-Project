@@ -23,7 +23,7 @@ import subprocess
 st.write(f"scikit-learn version: {sklearn.__version__}")
 
 # URL of the ZIP file in your GitHub repository
-url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model.zip"
+url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model_lr.zip"
 
 # Path where the ZIP file will be downloaded
 zip_path = "./hatla2ee_model.zip"
