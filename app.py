@@ -1,7 +1,3 @@
-pip uninstall scikit-learn
-pip install -r requirements.txt
-
-
 import streamlit as st
 import joblib
 import numpy as np
