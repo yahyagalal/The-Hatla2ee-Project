@@ -89,7 +89,7 @@ st.title("Unzipped the dataset")
 df_cleaned=pd.read_csv(extracted_csv_path)
 df_cleaned=df_cleaned.drop('Price',axis=1)
 
-
+st.write(df_cleaned.head())
 
 
 
