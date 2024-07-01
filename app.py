@@ -38,6 +38,7 @@ if not os.path.exists(model_path):
 #st.write("Loading model...")
 model = joblib.load(model_path)
 #st.write("Model loaded successfully!")
+st.write(model)
 
 scaler=joblib.load('./scaler.joblib')
 
