@@ -50,7 +50,7 @@ st.title("Used Car Price Prediction by Yahia Galal")
 
 
 df_cleaned=pd.read_csv(cleaned_data_path)
-df_cleaned=df_cleaned.drop('Price',axis=1)
+
 
 st.write(df_cleaned.head())
 
