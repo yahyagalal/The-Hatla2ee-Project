@@ -19,7 +19,7 @@ model_path = "./hatla2ee_model.joblib"
 
 
 # Path where the cleaned dataset CSV will be extracted
-cleaned_data_path = "./hatla2ee_scraped_data_cleaned.csv"
+cleaned_data_path = "./hatla2ee_cleaned_make_model_only.csv"
 
 # Download the ZIP file
 if not os.path.exists(zip_path):
