@@ -52,16 +52,16 @@ if not os.path.exists(model_path):
 #st.write("Loading model...")
 model = joblib.load(model_path)
 if hasattr(model, '__version__'):
-    st.write("Scikit-learn version used to save the model:", model.__version__)
+    #st.write("Scikit-learn version used to save the model:", model.__version__)
 else:
-    st.write("Scikit-learn version attribute not found in the model.")
+    #st.write("Scikit-learn version attribute not found in the model.")
 try:
     model = joblib.load(model_path)
-    st.write("Model loaded successfully!")
-    st.write(f"Model type: {type(model)}")
-    st.write(f"Model details: {model}")
+    #st.write("Model loaded successfully!")
+    #st.write(f"Model type: {type(model)}")
+    #st.write(f"Model details: {model}")
 except Exception as e:
-    st.write(f"Error loading model: {e}")
+    #st.write(f"Error loading model: {e}")
 #st.write("Model loaded successfully!")
 #st.write(model)
 
@@ -351,10 +351,10 @@ df['In Cairo'] = df.apply(lambda row: True if any(row[cairo_cities]) else False,
 
 #print(df.columns)
 
-st.write(df)
+#st.write(df)
 df_scaled=scaler.transform(df)
 
-st.write(df_scaled)
+#st.write(df_scaled)
 
 if st.button("Predict Price"):
     st.write("Price is ",int(model.predict(df_scaled)), " EGP")
