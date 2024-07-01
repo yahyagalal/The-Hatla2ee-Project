@@ -2,6 +2,14 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
+
+try:
+    import sklearn
+    st.write(f"scikit-learn version: {sklearn.__version__}")
+    st.write("scikit-learn imported successfully!")
+except ImportError:
+    st.error("scikit-learn not found. Please ensure it is installed.")
+    
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 import requests
