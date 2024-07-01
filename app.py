@@ -63,7 +63,7 @@ try:
 except Exception as e:
     st.write(f"Error loading model: {e}")
 #st.write("Model loaded successfully!")
-st.write(model)
+#st.write(model)
 
 scaler=joblib.load('./scaler.joblib')
 
