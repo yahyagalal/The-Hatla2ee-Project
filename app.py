@@ -4,11 +4,37 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
+import requests
+import zipfile
+import os
 
+# URL of the ZIP file in your GitHub repository
+url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model.zip"
 
+# Path where the ZIP file will be downloaded
+zip_path = "./hatla2ee_model.zip"
 
-# Load the trained model
-model = joblib.load('./hatla2ee_model.joblib')
+# Path where the model file will be extracted
+model_path = "./hatla2ee_model.joblib"
+
+# Download the ZIP file
+if not os.path.exists(zip_path):
+    st.write("Downloading model...")
+    response = requests.get(url)
+    with open(zip_path, "wb") as file:
+        file.write(response.content)
+
+# Unzip the file
+if not os.path.exists(model_path):
+    st.write("Unzipping model...")
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall()
+
+# Load the model
+st.write("Loading model...")
+model = joblib.load(model_path)
+st.write("Model loaded successfully!")
+
 scaler=joblib.load('./scaler.joblib')
 
 # Function to make predictions
