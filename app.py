@@ -23,21 +23,21 @@ cleaned_data_path = "./hatla2ee_cleaned_make_model_only.csv"
 
 # Download the ZIP file
 if not os.path.exists(zip_path):
-    st.write("Downloading model...")
+#    st.write("Downloading model...")
     response = requests.get(url)
     with open(zip_path, "wb") as file:
         file.write(response.content)
 
 # Unzip the file
 if not os.path.exists(model_path):
-    st.write("Unzipping model...")
+#    st.write("Unzipping model...")
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall()
 
 # Load the model
 st.write("Loading model...")
 model = joblib.load(model_path)
-st.write("Model loaded successfully!")
+#st.write("Model loaded successfully!")
 
 scaler=joblib.load('./scaler.joblib')
 
@@ -52,7 +52,7 @@ st.title("Used Car Price Prediction by Yahia Galal")
 df_cleaned=pd.read_csv(cleaned_data_path)
 
 
-st.write(df_cleaned.head())
+#st.write(df_cleaned.head())
 
 
 
