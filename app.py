@@ -69,8 +69,18 @@ unzip_cleaned_data(zip_path_cleaned_data, "./")
 
 st.title("Unzipped the dataset")
 
-df_cleaned=pd.read_csv("./hatla2ee_scraped_data_cleaned.csv")
-df_cleaned=df_cleaned.drop('Price',axis=1)
+if os.path.exists(cleaned_data_path):
+    # Load the cleaned dataset into a DataFrame
+    df_cleaned = pd.read_csv(cleaned_data_path)
+    st.title("Used Car Price Prediction by Yahia Galal")
+    st.title("Unzipped and loaded the dataset successfully!")
+    st.write(df_cleaned.head())  # Example: Display the first few rows of the dataset
+else:
+    st.error(f"Cleaned dataset file {cleaned_data_path} not found.")
+
+
+#df_cleaned=pd.read_csv("./hatla2ee_scraped_data_cleaned.csv")
+#df_cleaned=df_cleaned.drop('Price',axis=1)
 
 
 
