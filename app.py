@@ -325,10 +325,10 @@ df['In Cairo'] = df.apply(lambda row: True if any(row[cairo_cities]) else False,
 
 #print(df.columns)
 
-print(df)
+st.write(df)
 df_scaled=scaler.transform(df)
 
-print(df_scaled)
+st.write(df_scaled)
 
 if st.button("Predict Price"):
     st.write("Price is ",int(model.predict(df_scaled)), " EGP")
