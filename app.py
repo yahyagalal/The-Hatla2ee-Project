@@ -52,9 +52,13 @@ st.title("Used Car Price Prediction by Yahia Galal")
 
 
 
-st.write("Unzipping cleaned dataset...")
-with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-    zip_ref.extractall()
+if not os.path.exists(data_path):
+        st.write("Unzipping cleaned dataset...")
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall()
+
+
+st.title("Unzipped the dataset")
 
 df_cleaned=pd.read_csv("./hatla2ee_scraped_data_cleaned.csv")
 df_cleaned=df_cleaned.drop('Price',axis=1)
