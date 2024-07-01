@@ -17,6 +17,12 @@ zip_path = "./hatla2ee_model.zip"
 # Path where the model file will be extracted
 model_path = "./hatla2ee_model.joblib"
 
+# Path where the ZIP file of cleaned dataset will be downloaded
+zip_path_cleaned_data = "./hatla2ee_scraped_data_cleaned.zip"
+
+# Path where the cleaned dataset CSV will be extracted
+cleaned_data_path = "./hatla2ee_scraped_data_cleaned.csv"
+
 # Download the ZIP file
 if not os.path.exists(zip_path):
     st.write("Downloading model...")
@@ -44,6 +50,11 @@ scaler=joblib.load('./scaler.joblib')
 st.title("Used Car Price Prediction by Yahia Galal")
 
 
+
+
+st.write("Unzipping cleaned dataset...")
+with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+    zip_ref.extractall()
 
 df_cleaned=pd.read_csv("./hatla2ee_scraped_data_cleaned.csv")
 df_cleaned=df_cleaned.drop('Price',axis=1)
