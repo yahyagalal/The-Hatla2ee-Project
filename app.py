@@ -8,7 +8,8 @@ import requests
 import zipfile
 import os
 
-st.write(sklearn.__version__)
+# Display scikit-learn version using Streamlit
+st.write(f"scikit-learn version: {sklearn.__version__}")
 
 # URL of the ZIP file in your GitHub repository
 url = "https://github.com/yahyagalal/The-Hatla2ee-Project/raw/main/hatla2ee_model.zip"
