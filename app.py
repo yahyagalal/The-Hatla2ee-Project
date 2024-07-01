@@ -55,7 +55,7 @@ def unzip_cleaned_data(zip_path, extract_to):
     # Check if the ZIP file exists
     if not os.path.exists(zip_path):
         st.error(f"ZIP file {zip_path} not found.")
-        return
+        return None
 
     # Unzip the cleaned dataset if not already unzipped
     if not os.path.exists(extract_to):
@@ -64,23 +64,30 @@ def unzip_cleaned_data(zip_path, extract_to):
             zip_ref.extractall(extract_to)
         st.success(f"Cleaned dataset extracted to {extract_to}")
 
-# Example usage
-unzip_cleaned_data(zip_path_cleaned_data, "./")
+    # Check if there's a CSV file in the extracted directory
+    csv_files = [f for f in os.listdir(extract_to) if f.endswith('.csv')]
+    if csv_files:
+        csv_file = os.path.join(extract_to, csv_files[0])  # Assume the first CSV file found
+        return csv_file
+    else:
+        st.error(f"No CSV file found in {extract_to}.")
+        return None
+
+# Example usage: Unzip and get the path of the extracted CSV file
+extracted_csv_path = unzip_cleaned_data(zip_path_cleaned_data, "./")
+
+# Print the directory of the extracted file
+if extracted_csv_path:
+    st.write(f"Extracted CSV file path: {extracted_csv_path}")
+else:
+    st.error("Failed to extract CSV file.")
+
 
 st.title("Unzipped the dataset")
 
-if os.path.exists(cleaned_data_path):
-    # Load the cleaned dataset into a DataFrame
-    df_cleaned = pd.read_csv(cleaned_data_path)
-    st.title("Used Car Price Prediction by Yahia Galal")
-    st.title("Unzipped and loaded the dataset successfully!")
-    st.write(df_cleaned.head())  # Example: Display the first few rows of the dataset
-else:
-    st.error(f"Cleaned dataset file {cleaned_data_path} not found.")
 
-
-#df_cleaned=pd.read_csv("./hatla2ee_scraped_data_cleaned.csv")
-#df_cleaned=df_cleaned.drop('Price',axis=1)
+df_cleaned=pd.read_csv(extracted_csv_path)
+df_cleaned=df_cleaned.drop('Price',axis=1)
 
 
 
