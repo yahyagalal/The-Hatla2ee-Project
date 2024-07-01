@@ -18,8 +18,6 @@ import os
 
 import subprocess
 
-st.warning("Installing scikit-learn 1.3.0...")
-subprocess.check_call(['pip', 'install', 'scikit-learn==1.3.0'])
 
 # Display scikit-learn version using Streamlit
 st.write(f"scikit-learn version: {sklearn.__version__}")
