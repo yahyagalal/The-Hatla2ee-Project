@@ -51,10 +51,6 @@ if not os.path.exists(model_path):
 # Load the model
 #st.write("Loading model...")
 model = joblib.load(model_path)
-if hasattr(model, '__version__'):
-    #st.write("Scikit-learn version used to save the model:", model.__version__)
-else:
-    #st.write("Scikit-learn version attribute not found in the model.")
 try:
     model = joblib.load(model_path)
     #st.write("Model loaded successfully!")
